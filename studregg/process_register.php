@@ -13,6 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $confirmpassword = $_POST['confirmpassword'];
     $department = $_POST['department'];
     $usertype = $_POST['usertype'];
+    $course_name = $_POST['course_name']; // <-- Add this
 
     // Check if passwords match
     if ($password != $confirmpassword) {
@@ -28,15 +29,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
     // Insert into the database
-    $sql = "INSERT INTO users (firstname, lastname, dob, email, phone, username, password, department, usertype)
-            VALUES ('$firstname', '$lastname', '$dob', '$email', '$phone', '$username', '$hashed_password', '$department', '$usertype')";
+    $stmt = $conn->prepare("INSERT INTO users (firstname, lastname, dob, email, phone, username, password, department, usertype, course_name)
+                            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("ssssssssss", $firstname, $lastname, $dob, $email, $phone, $username, $hashed_password, $department, $usertype, $course_name);
 
-    if ($conn->query($sql) === TRUE) {
+    if ($stmt->execute()) {
         // Redirect to login page after successful registration
         header("Location: login.php");
         exit();
     } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
+        echo "Error: " . $stmt->error;
     }
+
+    $stmt->close();
+    $conn->close();
 }
 ?>
