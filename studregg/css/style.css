@@ -1,0 +1,117 @@
+/* studereg/css/style.css */
+body.home {
+    background: url('../assets/bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: white;
+}
+
+.overlay {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 60px;
+    text-align: center;
+    margin: 100px auto;
+    width: 60%;
+    border-radius: 10px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #007BFF;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+/* studereg/css/style.css */
+body.login {
+    background-color: #000; /* Black background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Styling the login container */
+.login-container {
+    background-color: #000; /* Black background for the form */
+    color: white; /* White text color */
+    padding: 40px;
+    border-radius: 10px;
+    width: 350px;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    border: 3px solid #FFD700; /* Yellow border for the container */
+}
+
+/* Hover effect for input fields and buttons */
+.login-container input,
+.login-container select,
+.login-container button {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    background-color: #333; /* Dark gray background for inputs */
+    color: white; /* White text color for inputs */
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+}
+
+/* Button hover effect */
+.login-container button:hover {
+    background-color: #FFD700; /* Yellow color for hover */
+    color: black; /* Black text when hovered */
+    cursor: pointer;
+}
+
+/* Input fields and select dropdown hover effect */
+.login-container input:hover,
+.login-container select:hover {
+    border-color: #FFD700; /* Yellow border on hover */
+    box-shadow: 0 0 5px rgba(255, 215, 0, 0.8); /* Yellow glow effect */
+}
+
+/* Link hover effect */
+.link-btn:hover {
+    color: #FFD700; /* Yellow color for the link on hover */
+    font-weight: bold;
+}
+
+
+.login-container {
+    background: black;
+    padding: 40px;
+    border-radius: 10px;
+    width: 350px;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.login-container h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.login-container input,
+.login-container select {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+}
+
+.link-btn {
+    color: #007BFF;
+    text-decoration: none;
+    font-weight: bold;
+}
