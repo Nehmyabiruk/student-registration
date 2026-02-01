@@ -99,9 +99,13 @@ unset($_SESSION ['message'], $_SESSION['message_type']);
                     <option value="Computer Science">Computer Science</option>
                     <option value="Marketing">Marketing</option>
                     <?php
-                    $stmt = $conn->query("SELECT dept_name FROM departments WHERE dept_name NOT IN ('Accounting', 'Computer Science', 'Marketing')");
-                    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                        echo "<option value='" . htmlspecialchars($row['dept_name']) . "'>" . htmlspecialchars($row['dept_name']) . "</option>";
+                    if (isset($conn)) {
+                        $result = $conn->query("SELECT dept_name FROM departments WHERE dept_name NOT IN ('Accounting', 'Computer Science', 'Marketing')");
+                        if ($result !== false) {
+                            while ($row = $result->fetch_assoc()) {
+                                echo "<option value='" . htmlspecialchars($row['dept_name']) . "'>" . htmlspecialchars($row['dept_name']) . "</option>";
+                            }
+                        }
                     }
                     ?>
                 </select>
